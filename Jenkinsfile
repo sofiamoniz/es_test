@@ -1,10 +1,10 @@
-node{
-  stage('SCM Checkout'){
-    git 'https://github.com/sofiamoniz/es_test'
-  }
-  stage('Compile-Package'){
-    sh 'mvn package'
-  }
-
-
+pipeline { 
+    agent any  
+    stages { 
+        stage('Build') { 
+            steps { 
+               echo 'This is a minimal pipeline.' 
+            }
+        }
+    }
 }
