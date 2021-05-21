@@ -29,11 +29,13 @@ pipeline {
                 }
             }
         }
+        /*
         stage ('Deploy') {
             steps{
                 sh 'mvn deploy -f followSky/pom.xml -s followSky/settings.xml' 
             }
         }
+        */
         stage("publish-image"){
             steps{
                 script{
@@ -47,7 +49,7 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('Runtime Deployment') { 
             steps {
                 sshagent(credentials: ['esp50_ssh_credentials']){
@@ -60,6 +62,6 @@ pipeline {
                 }
             }
         }
-        */
+        
     }
 }
