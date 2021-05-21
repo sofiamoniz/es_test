@@ -31,9 +31,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps{
-                dir('followSky'){  
-                        sh 'mvn deploy -f ./pom.xml -s ./settings.xml' 
-                }
+                sh 'mvn deploy -f followSky/pom.xml -s followSky/settings.xml' 
             }
         }
         stage("publish-image"){
