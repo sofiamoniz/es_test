@@ -1,0 +1,27 @@
+// NOTA: assumindo que está na raiz do repositório e a app está numa pasta chamada "webapp"
+/*
+  este foi o Jenkinsfile que usei para testar o deploy para o registry;
+  estes passos devem ser integrados numa pipeline na raiz do repositório (ver notas.txt)
+*/
+
+node {
+    checkout scm
+
+    // 192.168.160.48:5000
+    /*
+      1º arg -> URL do registry
+      2º arg -> ID da credencial (pode não ser passado)
+    */
+    // 'https://registry.hub.docker.com/', 'dockerhub'
+    docker.withRegistry('http://192.168.160.48:5000') { // IP da VM do Registry
+
+        /*
+          1º arg -> nome da imagem: neste caso é o id do grupo (esp50) /<nome da imagem>
+          2º arg -> caminho, no repositório, do Dockerfile da imagem a construir (opcional, mas preciso neste caso)
+        */
+        def customImage = docker.build("esp50/webapp", "./webapp")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+}

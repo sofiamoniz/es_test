@@ -1,0 +1,19 @@
+A parte de construir a imagem pode ser colocada num stage. Por exemplo:
+
+stage("publish-image"){
+  docker.withRegistry('http://192.168.160.48:5000') {
+
+        def customImage = docker.build("esp50/webapp", "./webapp")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }
+}
+
+
+==========================
+
+Quando formos correr a imagem na nossa Runtime VM (depois de fazer pull dela do Registry), temos de meter a porta onde ela deve correr.
+Para a webapp é a 50003, logo:
+
+docker run --publish 50003:50003 esp50/webapp

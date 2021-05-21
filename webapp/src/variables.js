@@ -1,0 +1,47 @@
+export const sample = [
+  {
+    sensor_id: 0,
+    data_type: "Double",
+    sensor_type: "Temperature",
+    unit: "Celsius",
+    unit_abbreviation: "ºC",
+    value: 22,
+    timestamp: 123,
+  },
+  {
+    sensor_id: 1,
+    data_type: "Double",
+    sensor_type: "Temperature",
+    unit: "Celsius",
+    unit_abbreviation: "ºC",
+    value: 20,
+    timestamp: 123,
+  },
+  {
+    sensor_id: 0,
+    data_type: "Double",
+    sensor_type: "CO2",
+    unit: "Parts - per - million",
+    unit_abbreviation: "ppm",
+    value: 467,
+    timestamp: 123,
+  },
+  {
+    sensor_id: 1,
+    data_type: "Double",
+    sensor_type: "CO2",
+    unit: "Parts - per - million",
+    unit_abbreviation: "ppm",
+    value: 427.9,
+    timestamp: 123,
+  },
+  {
+    sensor_id: 0,
+    data_type: "Double",
+    sensor_type: "Humidity",
+    unit: "Percentage",
+    unit_abbreviation: "%",
+    value: 50,
+    timestamp: 123,
+  }
+]
