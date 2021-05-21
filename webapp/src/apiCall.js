@@ -1,7 +1,7 @@
 export async function showAPIData() {
 
   //   TODO: which port to use?
-  let uri = "http://192.168.160.87:50008/sensor/all/latest-readings";
+  let uri = "http://192.168.160.87:50080/sensor/all/latest-readings";
 
   const request = async () => {
     let dataFromAPI;
