@@ -1,5 +1,8 @@
 // NOTA: assumindo que está na raiz do repositório e a app está numa pasta chamada "webapp"
-
+/*
+  este foi o Jenkinsfile que usei para testar o deploy para o registry;
+  estes passos devem ser integrados numa pipeline na raiz do repositório (ver notas.txt)
+*/
 
 node {
     checkout scm
