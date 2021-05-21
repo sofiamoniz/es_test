@@ -31,13 +31,14 @@ pipeline {
         }
         stage("publish-image"){
             steps{
-              docker.withRegistry('http://192.168.160.48:5000') {
-                  script{
-                    def customImage = docker.build("esp50/webapp", "./webapp")
+                script{
+                      docker.withRegistry('http://192.168.160.48:5000') {
+                            def customImage = docker.build("esp50/webapp", "./webapp")
 
-                    /* Push the container to the custom Registry */
-                    customImage.push()
-                  }
+                            /* Push the container to the custom Registry */
+                            customImage.push()
+
+                    }
                 }
             }
         }
