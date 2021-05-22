@@ -57,6 +57,7 @@ pipeline {
         
         stage('Runtime Deployment') { 
             steps {
+                /*
                  withCredentials([usernamePassword(credentialsId: 'esp50_ssh_credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     echo "here..."
                     echo "$remote.host"
@@ -76,7 +77,8 @@ pipeline {
                      sshCommand remote: remote, command: "docker create -p 50003:50003 --name esp50-webapp 192.168.160.48:5000/esp50/webapp"
                      sshCommand remote: remote, command: "docker start esp50-webapp"
                 }
-                /*
+                */
+                
                 sshagent(credentials: ['esp50_ssh_credentials']) {
                     
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker stop esp50-webapp"
@@ -87,7 +89,7 @@ pipeline {
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker start esp50-webapp"
                     
                 }
-                */
+                
              
                     
                 
