@@ -1,6 +1,8 @@
+/*
 def remote = [:]
 remote.host = "192.168.160.87"
 remote.name = "runtime"
+*/
 
 pipeline {
     agent any
