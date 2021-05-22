@@ -87,7 +87,7 @@ pipeline {
                     sshCommand remote: remote, command: "docker rm esp50-followsky"
                      sshCommand remote: remote, command: "docker rmi 192.168.160.48:5000/esp50/followsky"
                      sshCommand remote: remote, command: "docker pull 192.168.160.48:5000/esp50/followsky"
-                     sshCommand remote: remote, command: "docker create -p 3000:50004 --name esp50-followsky 192.168.160.48:5000/esp50/followsky"
+                     sshCommand remote: remote, command: "docker create -p 50004:3000 --name esp50-followsky 192.168.160.48:5000/esp50/followsky"
                      sshCommand remote: remote, command: "docker start esp50-followsky"
                 }
                   
