@@ -45,7 +45,7 @@ pipeline {
             steps{
                 script{
                       docker.withRegistry('http://192.168.160.48:5000') {
-                            def spring_api = docker.build("esp50/followSky", "./followSky")
+                            def spring_api = docker.build("esp50/followsky", "./followSky")
 
                             // Push the container to the custom Registry 
                             spring_api.push()
