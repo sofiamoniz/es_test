@@ -69,12 +69,12 @@ pipeline {
                     }
                     echo "$remote.user"
                     
-                    sshCommand remote: remote, command: "/bin/bash -c 'docker stop esp50-webapp'"
-                    sshCommand remote: remote, command: "/bin/bash -c 'docker rm esp50-webapp'"
-                     sshCommand remote: remote, command: "/bin/bash -c 'docker rmi 192.168.160.48:5000/esp50/webapp'"
-                     sshCommand remote: remote, command: "/bin/bash -c 'docker pull 192.168.160.48:5000/esp50/webapp'"
-                     sshCommand remote: remote, command: "/bin/bash -c 'docker create -p 50003:50003 --name esp50-webapp 192.168.160.48:5000/esp50/webapp'"
-                     sshCommand remote: remote, command: "/bin/bash -c 'docker start esp50-webapp'"
+                    sshCommand remote: remote, command: "docker stop esp50-webapp"
+                    sshCommand remote: remote, command: "docker rm esp50-webapp"
+                     sshCommand remote: remote, command: "docker rmi 192.168.160.48:5000/esp50/webapp"
+                     sshCommand remote: remote, command: "docker pull 192.168.160.48:5000/esp50/webapp"
+                     sshCommand remote: remote, command: "docker create -p 50003:50003 --name esp50-webapp 192.168.160.48:5000/esp50/webapp"
+                     sshCommand remote: remote, command: "docker start esp50-webapp"
                 }
                 /*
                 sshagent(credentials: ['esp50_ssh_credentials']) {
