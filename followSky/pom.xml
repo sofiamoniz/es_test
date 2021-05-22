@@ -8,8 +8,8 @@
 		<version>2.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ES_lab</groupId>
-	<artifactId>followSky</artifactId>
+	<groupId>pt.ua.deti.es.esp50</groupId>
+	<artifactId>followSkyTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>followSky</name>
 	<description>Demo for ES lab project</description>
