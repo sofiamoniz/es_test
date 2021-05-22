@@ -40,11 +40,18 @@ pipeline {
             }
         }
         
-        /*
+        
         stage("publish-image"){
             steps{
                 script{
                       docker.withRegistry('http://192.168.160.48:5000') {
+                            def spring_api = docker.build("esp50/followSky", "./followSky")
+
+                            // Push the container to the custom Registry 
+                            spring_api.push()
+
+                    }
+                    docker.withRegistry('http://192.168.160.48:5000') {
                             def customImage = docker.build("esp50/webapp", "./webapp")
 
                             // Push the container to the custom Registry 
@@ -54,7 +61,7 @@ pipeline {
                 }
             }
         }
-        
+        /*
         stage('Runtime Deployment') { 
             steps {
                  withCredentials([usernamePassword(credentialsId: 'esp50_ssh_credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
