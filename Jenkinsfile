@@ -53,7 +53,7 @@ pipeline {
         
         stage('Runtime Deployment') { 
             steps {
-                sshagent(credentials: [‘esp50_ssh_credentials]) {
+                sshagent(credentials: ['esp50_ssh_credentials']) {
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker stop esp50-webapp"
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker rm esp50-webapp"
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker rmi 192.168.160.48:5000/esp50/webapp"
