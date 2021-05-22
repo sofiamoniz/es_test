@@ -11,7 +11,7 @@
 	<groupId>pt.ua.deti.es.esp50</groupId>
 	<artifactId>followSkyTest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>followSky</name>
+	<name>followSkyTest</name>
 	<description>Demo for ES lab project</description>
 	<properties>
 		<java.version>11</java.version>
