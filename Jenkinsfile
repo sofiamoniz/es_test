@@ -29,12 +29,13 @@ pipeline {
                 }
             }
         }
-        
+        /*
         stage ('Deploy') {
             steps{
                 sh 'mvn deploy -f followSky/pom.xml -s followSky/settings.xml' 
             }
         }
+        */
         
         stage("publish-image"){
             steps{
@@ -49,10 +50,10 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('Runtime Deployment') { 
             steps {
-                sshagent(credentials: ['esp50_ssh_credentials']){
+                withCredentials([usernamePassword(credentialsId: 'esp50_ssh_credentials', usernameVariable: 'esp50', passwordVariable: 'HLtCFvRP')]) {
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker stop esp50-webapp"
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker rm esp50-webapp"
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker rmi 192.168.160.48:5000/esp50/webapp"
@@ -60,9 +61,12 @@ pipeline {
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker create -p 50003:50003 --name esp50-webapp 192.168.160.48:5000/esp50/webapp"
                     sh "ssh -o 'StrictHostKeyChecking=no' -l esp50 192.168.160.87 docker start esp50-webapp"
                 }
+             
+                    
+                
             }
         }
-        */
+        
         
     }
 }
