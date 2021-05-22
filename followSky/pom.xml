@@ -110,12 +110,12 @@
 	    <repository>
 		<id>central</id>
 		<name>e7315e271819-releases</name>
-		<url>http://192.168.160.49:8081/artifactory/maven_es2021</url>
+		<url>http://192.168.160.49:8081/artifactory/maven_es2021/pt/ua/deti/es/esp50/test</url>
 	    </repository>
 	    <snapshotRepository>
 		<id>snapshots</id>
 		<name>e7315e271819-snapshots</name>
-		<url>http://192.168.160.49:8081/artifactory/maven_es2021</url>
+		<url>http://192.168.160.49:8081/artifactory/maven_es2021/pt/ua/deti/es/esp50/test</url>
 	    </snapshotRepository>
 	</distributionManagement>
 
