@@ -50,6 +50,7 @@ pipeline {
                             def customImage = docker.build("esp50/webapp", "./webapp")
                     }
                 }
+            }
         }
         
         stage('Publish images'){
