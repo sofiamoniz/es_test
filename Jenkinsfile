@@ -4,6 +4,12 @@ remote.name = "runtime"
 
 pipeline {
     agent any
+    
+    environment {
+        spring_api = ""
+        customImage = ""
+    }
+    
     tools {
         maven 'maven36'
     }
@@ -44,10 +50,10 @@ pipeline {
             steps{
                 script{
                       docker.withRegistry('http://192.168.160.48:5000') {
-                            def spring_api = docker.build("esp50/followsky", "./followSky")
+                            spring_api = docker.build("esp50/followsky", "./followSky")
                     }
                     docker.withRegistry('http://192.168.160.48:5000') {
-                            def customImage = docker.build("esp50/webapp", "./webapp")
+                            customImage = docker.build("esp50/webapp", "./webapp")
                     }
                 }
             }
