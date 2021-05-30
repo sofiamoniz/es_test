@@ -40,20 +40,27 @@ pipeline {
             }
         }
         
-        
-        stage("publish-image"){
+        stage('Build images'){
             steps{
                 script{
                       docker.withRegistry('http://192.168.160.48:5000') {
                             def spring_api = docker.build("esp50/followsky", "./followSky")
-
+                    }
+                    docker.withRegistry('http://192.168.160.48:5000') {
+                            def customImage = docker.build("esp50/webapp", "./webapp")
+                    }
+                }
+        }
+        
+        stage('Publish images'){
+            steps{
+                script{
+                      docker.withRegistry('http://192.168.160.48:5000') {
                             // Push the container to the custom Registry 
                             spring_api.push()
 
                     }
                     docker.withRegistry('http://192.168.160.48:5000') {
-                            def customImage = docker.build("esp50/webapp", "./webapp")
-
                             // Push the container to the custom Registry 
                             customImage.push()
 
