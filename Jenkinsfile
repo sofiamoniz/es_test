@@ -58,6 +58,8 @@ pipeline {
                             customImage.push()
 
                     }
+                    sh 'docker rmi esp50/followsky'
+                    sh 'docker rmi esp50/webapp'
                 }
             }
         }
