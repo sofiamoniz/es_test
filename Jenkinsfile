@@ -81,8 +81,6 @@ pipeline {
         stage('Runtime Deployment') { 
             steps {
                  withCredentials([usernamePassword(credentialsId: 'esp50_ssh_credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    echo "here..."
-                    echo "$remote.host"
                     
                     script {
                       remote.user = USERNAME
@@ -90,7 +88,6 @@ pipeline {
                       remote.allowAnyHosts = true
                         
                     }
-                    echo "$remote.user"
                     
                     sshCommand remote: remote, command: "docker stop esp50-webapp"
                     sshCommand remote: remote, command: "docker rm esp50-webapp"
